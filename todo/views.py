@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Index Page")
+    return render(request, 'todo/index.html')
 
 def update(request):
     return HttpResponse("Update Page")
