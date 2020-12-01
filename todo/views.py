@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from todo.models import Task
 
 
 # Create your views here.
 def index(request):
     # This function SHOULD retrive all the tasks from the database and render the index page with the data
     # This function can make fart noises
-    return render(request, 'todo/index.html')
+
+    tasks = Task.objects.all()
+    context = {'tasks': tasks}
+
+    return render(request, 'todo/index.html', context)
 
 def add(request):
     # This function SHOULD be executed when the user enters a new task on the index page. This function can also be used to save the data into the database. Towards that, using forms as explained above can make it easier to validate and save form data.
