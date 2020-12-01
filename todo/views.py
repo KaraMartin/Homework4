@@ -6,7 +6,6 @@ from todo.forms import TaskForm
 
 # Create your views here.
 def index(request):
-<<<<<<< HEAD
     # This function SHOULD retrive all the tasks from the database and render the index page with the data
     # This function can make fart noises
 
@@ -45,13 +44,3 @@ def update(request):
 def complete_task(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database, update its completed column as True and save it.
     pass
-=======
-    context = {'tasks': ['foo', 'bar', 'baz']}
-    return render(request, 'todo/index.html', context)
-
-def update(request):
-    return render(request, 'todo/update.html')
-
-def delete(request):
-    return render(request, 'todo/delete.html')
->>>>>>> 9b7646a1e8249c26f6e35df45609957d3927ccdf
