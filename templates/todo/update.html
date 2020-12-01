@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 {% block content %}
     <form action="{% url 'update'%}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Send">
     </form>
+=======
+{% extends 'todo/base.html' %}
+
+{% block title %}
+    <title>Update</title>
+{% endblock %}
+
+{% block body %}
+    <p>This is the update page.</p>
+>>>>>>> 9b7646a1e8249c26f6e35df45609957d3927ccdf
 {% endblock %}
