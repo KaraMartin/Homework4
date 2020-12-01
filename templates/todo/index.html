@@ -5,9 +5,9 @@
     <p>This is an index page</p>
 
     <h1>Tasks</h1>
-    <ul>
-        {% for task in tasks %}
-            <li>{{ task }}</li>
-        {% endfor %}
-    </ul>
+    {% for task in tasks %}
+        <div>
+            {{ task }}
+        </div>
+    {% endfor %}
 {% endblock %}
