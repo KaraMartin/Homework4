@@ -9,5 +9,5 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        string = 'Task: {task}; Completed: {completed}'
-        return string.format(task = self.task, completed = self.completed)
+        string = 'Task: {task}; Completed: {completed}; Created at: {created}'
+        return string.format(task = self.task, completed = self.completed, created = self.created_at)

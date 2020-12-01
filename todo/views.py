@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from todo.models import Task
+from todo.forms import TaskForm
 
 
 # Create your views here.
@@ -23,7 +24,22 @@ def delete(request):
     
 def update(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
-    return HttpResponse("Update Page")
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return index(request)
+
+        else:
+            form = TaskForm()
+            context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
+            return render(request, 'todo/update.html')
+            
+    else:
+        form = TaskForm()
+        context = {'form': form}
+        return render(request, 'todo/update.html', context)
 
 def complete_task(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database, update its completed column as True and save it.
