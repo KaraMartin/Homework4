@@ -4,10 +4,22 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
+    # This function SHOULD retrive all the tasks from the database and render the index page with the data
+    # This function can make fart noises
     return render(request, 'todo/index.html')
 
-def update(request):
-    return HttpResponse("Update Page")
+def add(request):
+    # This function SHOULD be executed when the user enters a new task on the index page. This function can also be used to save the data into the database. Towards that, using forms as explained above can make it easier to validate and save form data.
+    pass
 
 def delete(request):
+    # This function SHOULD take task id as an argument and get the corresponding record from the database and then delete it.
     return HttpResponse("Delete Page")
+    
+def update(request):
+    # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
+    return HttpResponse("Update Page")
+
+def complete_task(request):
+    # This function SHOULD take task id as an argument and get the corresponding record from the database, update its completed column as True and save it.
+    pass
