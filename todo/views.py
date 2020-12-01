@@ -4,10 +4,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return render(request, 'todo/index.html')
+    context = {'tasks': ['foo', 'bar', 'baz']}
+    return render(request, 'todo/index.html', context)
 
 def update(request):
-    return HttpResponse("Update Page")
+    return render(request, 'todo/update.html')
 
 def delete(request):
-    return HttpResponse("Delete Page")
+    return render(request, 'todo/delete.html')

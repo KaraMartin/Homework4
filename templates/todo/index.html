@@ -1,6 +1,15 @@
 {% extends 'todo/base.html' %}
 
+{% block title %}
+    <title>Index</title>
+{% endblock %}
 
-{% block content %}
+{% block body %}
     <p>This is an index page</p>
+
+    <ul>
+        {% for task in tasks %}
+            <li> {{ task }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
