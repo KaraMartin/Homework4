@@ -46,10 +46,13 @@ def delete(request):
 def update(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
 
-    task = Task.objects.get(pk=request.GET.get('id'))
+    # task = Task.objects.get(pk=request.GET.get('id'))
     
     if request.method == 'POST':
         form = TaskForm(request.POST)
+        print('\nTEST')
+        print(request.POST)
+        print('TEST\n')
 
         if form.is_valid():
             form.save()
@@ -61,6 +64,7 @@ def update(request):
             return render(request, 'todo/update.html')
             
     else:
+        task = Task.objects.get(pk=request.GET.get('id'))
         data = {
             'task': task.task,
             'completed': task.completed,
