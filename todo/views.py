@@ -40,7 +40,7 @@ def add(request):
 def delete(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database
     # and then delete it.
-    return HttpResponse("Delete Page")
+    return render(request, 'todo/delete.html')
 
 
 def update(request):
