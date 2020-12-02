@@ -6,7 +6,7 @@ from todo.forms import TaskForm
 
 # Create your views here.
 def index(request):
-    # This function SHOULD retrive all the tasks from the database and render the index page with the data
+    # This function SHOULD retrieve all the tasks from the database and render the index page with the data
     # This function can make fart noises
 
     tasks = Task.objects.all()
@@ -16,7 +16,22 @@ def index(request):
 
 def add(request):
     # This function SHOULD be executed when the user enters a new task on the index page. This function can also be used to save the data into the database. Towards that, using forms as explained above can make it easier to validate and save form data.
-    pass
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return index(request)
+
+        else:
+            form = TaskForm()
+            context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
+            return render(request, 'todo/update.html')
+
+    else:
+        form = TaskForm()
+        context = {'form': form}
+        return render(request, 'todo/update.html', context)
 
 def delete(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then delete it.
