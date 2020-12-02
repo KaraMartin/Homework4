@@ -38,15 +38,35 @@ def add(request):
 
 
 def delete(request):
-    # This function SHOULD take task id as an argument and get the corresponding record from the database
-    # and then delete it.
-    return render(request, 'todo/delete.html')
+    # This function SHOULD take task id as an argument and get the corresponding record from the database and then delete it.
+    
+    # return render(request, 'todo/delete.html')
+
+
+    if request.method == 'POST':
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+        print(request.POST)
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+        instance = Task.objects.get(id=request.POST['id'])
+        instance.delete()
+        return index(request)
+
+    else:
+        taskId = request.GET.get('id')
+        
+        print('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
+        print(taskId)
+        print('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
+        context = {'taskId': taskId}
+        return render(request, 'todo/delete.html', context)
+
 
 
 def update(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
     
     if request.method == 'POST':
+        print(request.POST)
         instance = Task.objects.get(id=request.POST['id'])
         form = TaskForm(request.POST or None, instance=instance)
         if form.is_valid():
@@ -57,20 +77,8 @@ def update(request):
             context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
             return render(request, 'todo/update.html', context) 
 
-    #     if form.is_valid():
-    #         form.save()
-    #         return index(request)
-
-    #     else:
-    #         form = TaskForm()
-    #         context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
-    #         return render(request, 'todo/update.html')
             
     else:
-        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-        print(request.GET)
-        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-
         taskId = request.GET.get('id')
         task = Task.objects.get(pk=taskId)
         data = {
@@ -82,6 +90,7 @@ def update(request):
 
 
         context = {'form': form, 'taskId':taskId}
+        print(form)
         return render(request, 'todo/update.html', context)
 
 
