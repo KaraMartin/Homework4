@@ -36,7 +36,7 @@ def add(request):
 def delete(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then delete it.
     return HttpResponse("Delete Page")
-
+    
 def update(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
     if request.method == 'POST':
@@ -50,7 +50,7 @@ def update(request):
             form = TaskForm()
             context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
             return render(request, 'todo/update.html')
-
+            
     else:
         form = TaskForm()
         context = {'form': form}
