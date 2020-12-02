@@ -3,9 +3,10 @@
 {% block title %}
     <title>Update</title>
 
-    <form action="{% url 'update'%}" method="post">
+    <form action="{% url 'update'%}?id={{ taskId }}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <input type="hidden" name="id" value="{{ taskId }}">
         <input type="submit" value="Send">
     </form>
 {% endblock %}
