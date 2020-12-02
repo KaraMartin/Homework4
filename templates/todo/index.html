@@ -21,8 +21,8 @@
         <div class="row task-box border {% if task.completed %}greyed-out{% endif %} align-center">
             <div class="col-md-8 col-sm-12 justify-content-start">
 
-                <div class="font-weight-bold {% if task.completed %}strikethrough{% endif %}">{{ task }}</div>
-                <div class="datetime {% if task.completed %}strikethrough{% endif %}">Created at: {{ task.created_at }}</div>
+                <div class="font-weight-bold {% if task.completed %}text-muted strikethrough{% endif %}">{{ task }}</div>
+                <div class="datetime {% if task.completed %}text-muted strikethrough{% endif %}">Created at: {{ task.created_at }}</div>
             </div>
 
             <div class="small-screen-buffer"></div>
