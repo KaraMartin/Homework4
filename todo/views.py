@@ -91,4 +91,12 @@ def update(request):
 def complete_task(request):
     # This function SHOULD take task id as an argument and get the corresponding record
     # from the database, update its completed column as True and save it.
-    pass
+
+    taskId = request.GET.get('id')
+    task = Task.objects.get(pk=taskId)
+
+    task.completed = True
+    task.save()
+
+    return index(request)
+    # pass

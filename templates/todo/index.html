@@ -28,9 +28,23 @@
             <div class="small-screen-buffer"></div>
 
             <div class=" col-md-4 col-sm-12 d-flex taskButtons justify-content-md-end justify-content-sm-start">
-                {% if not task.completed %}<div class="mr-1"><button class="btn btn-success" type="submit">Completed</button></div> {% endif %}
-                <div class="mr-1"><a href="{% url 'update' %}?id={{ task.id }}"><button class="btn btn-primary" type="submit">Update</button></a></div>
-                <div><a href="{% url 'delete' %}?id={{ task.id }}"><button class="btn btn-danger" type="submit">Delete</button></a></div>
+                {% if not task.completed %}
+                    <div class="mr-1">
+                        <a href="{% url 'complete_task' %}?id={{ task.id }}">
+                            <button class="btn btn-success" type="submit">Completed</button>
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="mr-1">
+                    <a href="{% url 'update' %}?id={{ task.id }}">
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'delete' %}?id={{ task.id }}">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </a>
+                </div>
             </div>
         </div>
     {% endfor %}
