@@ -27,7 +27,7 @@
                     <div>Created at: Date, Time</div>
                 </div>
                 <div class="col-4">
-                    Completed <a href="{% url 'update' %}">Update </a> <a href="{% url 'delete' %}">Delete</a>
+                    Completed <a href="{% url 'update' %}?id={{ task.id }}">Update </a> <a href="{% url 'delete' %}?id={{ task.id }}">Delete</a>
                 </div>
             </div>
         {% endfor %}
