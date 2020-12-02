@@ -1,3 +1,9 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+    <title>Update</title>
+{% endblock %}
+
 {% block content %}
     <form action="{% url 'update'%}" method="post">
         {% csrf_token %}

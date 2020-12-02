@@ -5,12 +5,32 @@
 {% endblock %}
 
 {% block body %}
-    <p>This is an index page</p>
-
-    <h1>Tasks</h1>
-    {% for task in tasks %}
-        <div>
-            {{ task }}
+    <!-- Main elements of page-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 align-center">
+                <h1>TO-DO LIST</h1>
+            </div>
         </div>
-    {% endfor %}
+
+        <div class="row justify-content-center">
+            <div class="col">
+                Add Task Textbox
+            </div>
+        </div>
+
+
+        {% for task in tasks %}
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <div>{{ task }}</div>
+                    <div>Created at: Date, Time</div>
+                </div>
+                <div class="col-4">
+                    Completed <a href="{% url 'update' %}">Update </a> <a href="{% url 'delete' %}">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
 {% endblock %}
