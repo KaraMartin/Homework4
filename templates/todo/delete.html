@@ -1,25 +1,22 @@
 {% extends 'todo/base.html' %}
 
 {% block title %}
-    <title>Delete</title>
+    <title>Delete Task</title>
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <div class="row justify-content-md-center">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">
-                        Delete Task
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Are you sure you want to delete {{ task }}?</h5>
-                        <a href="{% url 'index' %}" class="btn btn-info">No, go back</a>
-                        <button class="btn btn-danger" type="submit">Yes, delete</button>
-                    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    Delete Task
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Are you sure you want to delete {{ task }}?</h5>
+                    <a href="{% url 'index' %}" class="btn btn-info">No, go back</a>
+                    <button class="btn btn-danger" type="submit">Yes, delete</button>
                 </div>
             </div>
         </div>
     </div>
-
 {% endblock %}

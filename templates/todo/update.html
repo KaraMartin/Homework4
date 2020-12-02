@@ -1,12 +1,11 @@
 {% extends 'todo/base.html' %}
 
 {% block title %}
-    <title>Update</title>
+    <title>Update Task</title>
 {% endblock %}
 
 {% block content %}
 
-    This is the update page.
 <!--
     <form action="{% url 'update'%}" method="post">
         {% csrf_token %}
@@ -14,24 +13,22 @@
         <input type="submit" value="Send">
     </form>
 -->
-    <div class="container mt-5">
-        <div class="row justify-content-md-center">
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-header">
-                        Update Task
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                            <h4 class="card-title">Task</h4>
+    <div class="row justify-content-md-center">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    Update Task
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                        <h4 class="card-title">Task</h4>
 
-                            <a href="{% url 'index' %}" class="btn btn-info"><- Go back</a>
-                            <button class="btn btn-danger" type="submit">Update</button>
-                            </div>
-                            <div class="col-2">
-                                Completed
-                            </div>
+                        <a href="{% url 'index' %}" class="btn btn-info"><- Go back</a>
+                        <button class="btn btn-danger" type="submit">Update</button>
+                        </div>
+                        <div class="col-2">
+                            Completed
                         </div>
                     </div>
                 </div>
