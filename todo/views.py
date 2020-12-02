@@ -67,6 +67,10 @@ def update(request):
     #         return render(request, 'todo/update.html')
             
     else:
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+        print(request.GET)
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+
         taskId = request.GET.get('id')
         task = Task.objects.get(pk=taskId)
         data = {
