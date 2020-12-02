@@ -60,7 +60,6 @@ def update(request):
     # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
     
     if request.method == 'POST':
-        print(request.POST)
         instance = Task.objects.get(id=request.POST['id'])
         form = TaskForm(request.POST or None, instance=instance)
         if form.is_valid():
@@ -82,9 +81,7 @@ def update(request):
         }
         form = TaskForm(initial = data)
 
-
         context = {'form': form, 'taskId':taskId}
-        print(form)
         return render(request, 'todo/update.html', context)
 
 
