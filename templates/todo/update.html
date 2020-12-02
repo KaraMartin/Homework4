@@ -19,11 +19,12 @@
                             {% csrf_token %}
                             {{ form.as_p }}
                             <input type="hidden" name="id" value="{{ taskId }}">
-                            <input type="submit" value="Send">
+                            <a href="{% url 'index' %}?id={{ task.id }}" class="btn btn-info">&#60;- Go back</a>
+                            <button class="btn btn-danger" type="submit">Update</button>
+                            <!-- <input type="submit" value="Send"> -->
                         </form>
 
-                        <a href="{% url 'index' %}?id={{ task.id }}" class="btn btn-info">&#60;- Go back</a>
-                        <button class="btn btn-danger" type="submit">Update</button>
+                        
                         </div>
                         <div class="col-2">
                             <div>Completed</div>
