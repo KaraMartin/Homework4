@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from todo.models import Task
 from todo.forms import TaskForm
 
@@ -44,20 +44,14 @@ def delete(request):
 
 
     if request.method == 'POST':
-        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-        print(request.POST)
-        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
         instance = Task.objects.get(id=request.POST['id'])
         instance.delete()
         return index(request)
 
     else:
         taskId = request.GET.get('id')
-        
-        print('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
-        print(taskId)
-        print('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
-        context = {'taskId': taskId}
+        task = Task.objects.get(pk=taskId)
+        context = {'taskId': taskId, 'task': task}
         return render(request, 'todo/delete.html', context)
 
 
