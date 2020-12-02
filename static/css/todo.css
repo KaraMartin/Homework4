@@ -36,4 +36,14 @@ body {
     .small-screen-buffer {
         width: 100%;
     }
+
+    .taskButtons {
+        justify-content: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .taskButtons {
+        justify-content: end;
+    }
 }

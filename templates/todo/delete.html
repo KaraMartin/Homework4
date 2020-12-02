@@ -12,7 +12,7 @@
                     Delete Task
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Are you sure you want to delete <span class="taskName">{{ task }}?</span></h5>
+                    <h5 class="card-title">Are you sure you want to delete <span class="taskName">{{ task }}</span>?</h5>
                     
                     <form action="{% url 'delete'%}?id={{ taskId }}" method="post">
                         {% csrf_token %}
