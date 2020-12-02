@@ -4,6 +4,7 @@ li {
 
 h1 {
     color: black;
+    text-align: center;
 }
 
 body {
@@ -15,10 +16,24 @@ body {
     color: gray;
 }
 
-.task {
+.taskbox {
     border: 1px silver;
     border-radius: 0.25rem;
     background-color: white;
     margin: 10px;
     padding: 10px;
+}
+
+.taskName {
+    color: #fe6993;
+    background-color: rgba(254, 105, 147, 0.1);
+    border-radius: 3px;
+    padding: 0.2em;
+    line-height: 2em;
+}
+
+@media (max-width: 767px) {
+    .small-screen-buffer {
+        width: 100%;
+    }
 }

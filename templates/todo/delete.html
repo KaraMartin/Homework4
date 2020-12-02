@@ -12,7 +12,7 @@
                     Delete Task
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Are you sure you want to delete {{ task }}?</h5>
+                    <h5 class="card-title">Are you sure you want to delete <span class="taskName">{{ task }}?</span></h5>
                     <a href="{% url 'index' %}" class="btn btn-info">No, go back</a>
                     <button class="btn btn-danger" type="submit">Yes, delete</button>
                 </div>

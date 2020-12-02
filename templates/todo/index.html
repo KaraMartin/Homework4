@@ -5,35 +5,34 @@
 {% endblock %}
 
 {% block body %}
-    <!-- Main elements of page-->
+    <div class="row justify-content-center">
+        <div class="col-8 align-center">
+            <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <div class="input-group-append">
+                <input type="text" class="form-control" placeholder="Add tasks" name="task">
+                <button class="btn btn-primary" type="submit">ADD</button>
+            </div>
+            </form>
+        </div>
+    </div>
 
+    {% for task in tasks %}
+        <div class="row taskbox border">
+            <div class="col-8 justify-content-start">
 
-        <div class="row justify-content-center">
-            <div class="col-lg-8 align-center">
-                <form action="{% url 'add' %}" method="post">
-                {% csrf_token %}
-                <div class="input-group-append">
-                    <input type="text" class="form-control" placeholder="Add tasks" name="task">
-                    <button class="btn btn-primary" type="submit">ADD</button>
-                </div>
-                </form>
+                <div class="font-weight-bold">{{ task }}</div>
+                <div class="datetime">Created at: {{ created_at }} date time</div>
+            </div>
+
+            <div class="small-screen-buffer"></div>
+
+            <div class=" col-4 d-flex taskButtons">
+                <div class="mr-1"><button class="btn btn-success" type="submit">Completed</button></div>
+                <div class="mr-1"><a href="{% url 'update' %}"><button class="btn btn-primary" type="submit">Update</button></a></div>
+                <div><a href="{% url 'delete' %}"><button class="btn btn-danger" type="submit">Delete</button></a></div>
             </div>
         </div>
-
-        {% for task in tasks %}
-            <div class="row justify-content-center task border">
-
-                <div class="col-8">
-                    <div class="font-weight-bold">{{ task }}</div>
-                    <div class="datetime">Created at: {{ created_at }} date time</div>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn-success" type="submit">Completed</button>
-                    <a href="{% url 'update' %}"><button class="btn btn-primary" type="submit">Update</button></a>
-                    <a href="{% url 'delete' %}"><button class="btn btn-danger" type="submit">Delete</button></a>
-                </div>
-
-            </div>
-        {% endfor %}
+    {% endfor %}
 
 {% endblock %}
