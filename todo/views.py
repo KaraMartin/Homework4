@@ -38,10 +38,8 @@ def add(request):
 
 
 def delete(request):
-    # This function SHOULD take task id as an argument and get the corresponding record from the database and then delete it.
-    
-    # return render(request, 'todo/delete.html')
-
+    # This function SHOULD take task id as an argument and get the corresponding
+    # record from the database and then delete it.
 
     if request.method == 'POST':
         instance = Task.objects.get(id=request.POST['id'])
@@ -55,9 +53,10 @@ def delete(request):
         return render(request, 'todo/delete.html', context)
 
 
-
 def update(request):
-    # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
+    # This function SHOULD take task id as an argument and get the corresponding record
+    # from the database and then update it. Similar to add function, using forms in this
+    # function can make it easier to validate and save form data.
     
     if request.method == 'POST':
         instance = Task.objects.get(id=request.POST['id'])
@@ -70,7 +69,6 @@ def update(request):
             context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
             return render(request, 'todo/update.html', context) 
 
-            
     else:
         taskId = request.GET.get('id')
         task = Task.objects.get(pk=taskId)
@@ -96,4 +94,3 @@ def complete_task(request):
     task.save()
 
     return index(request)
-    # pass
