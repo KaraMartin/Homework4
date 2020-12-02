@@ -14,8 +14,11 @@ def index(request):
 
     return render(request, 'todo/index.html', context)
 
+
 def add(request):
-    # This function SHOULD be executed when the user enters a new task on the index page. This function can also be used to save the data into the database. Towards that, using forms as explained above can make it easier to validate and save form data.
+    # This function SHOULD be executed when the user enters a new task on the index page.
+    # This function can also be used to save the data into the database. Towards that, using forms
+    # as explained above can make it easier to validate and save form data.
     if request.method == 'POST':
         form = TaskForm(request.POST)
 
@@ -33,12 +36,17 @@ def add(request):
         context = {'form': form}
         return render(request, 'todo/update.html', context)
 
+
 def delete(request):
-    # This function SHOULD take task id as an argument and get the corresponding record from the database and then delete it.
+    # This function SHOULD take task id as an argument and get the corresponding record from the database
+    # and then delete it.
     return HttpResponse("Delete Page")
-    
+
+
 def update(request):
-    # This function SHOULD take task id as an argument and get the corresponding record from the database and then update it. Similar to add function, using forms in this function can make it easier to validate and save form data.
+    # This function SHOULD take task id as an argument and get the corresponding record from the database
+    # and then update it. Similar to add function, using forms in this function can make it easier to
+    # validate and save form data.
     if request.method == 'POST':
         form = TaskForm(request.POST)
 
@@ -56,6 +64,8 @@ def update(request):
         context = {'form': form}
         return render(request, 'todo/update.html', context)
 
+
 def complete_task(request):
-    # This function SHOULD take task id as an argument and get the corresponding record from the database, update its completed column as True and save it.
+    # This function SHOULD take task id as an argument and get the corresponding record
+    # from the database, update its completed column as True and save it.
     pass

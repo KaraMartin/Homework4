@@ -3,5 +3,22 @@ li {
 }
 
 h1 {
-    color: green;
+    color: black;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+.datetime {
+    size: 0.7rem;
+    color: gray;
+}
+
+.task {
+    border: 1px silver;
+    border-radius: 0.25rem;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
 }
