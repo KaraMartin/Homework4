@@ -1,18 +1,9 @@
 {% extends 'todo/base.html' %}
 
 {% block title %}
-    <title>Update Task</title>
-{% endblock %}
+    <title>Update</title>
 
-{% block content %}
-
-<!--
-    <form action="{% url 'update'%}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Send">
-    </form>
--->
+    
     <div class="row justify-content-md-center">
         <div class="col-8">
             <div class="card">
@@ -23,8 +14,13 @@
                     <div class="row">
                         <div class="col-6">
                         <h4 class="card-title">Task</h4>
-
-                        <!-- need a form here -->
+                        
+                        <form action="{% url 'update'%}?id={{ taskId }}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="hidden" name="id" value="{{ taskId }}">
+                            <input type="submit" value="Send">
+                        </form>
 
                         <a href="{% url 'index' %}" class="btn btn-info"><- Go back</a>
                         <button class="btn btn-danger" type="submit">Update</button>
