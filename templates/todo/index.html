@@ -18,7 +18,7 @@
     </div>
 
     {% for task in tasks %}
-        <div class="row task-box border {% if task.completed %}greyed-out{% endif %}">
+        <div class="row task-box border {% if task.completed %}greyed-out{% endif %} align-center">
             <div class="col-md-8 col-sm-12 justify-content-start">
 
                 <div class="font-weight-bold {% if task.completed %}strikethrough{% endif %}">{{ task }}</div>
@@ -27,7 +27,7 @@
 
             <div class="small-screen-buffer"></div>
 
-            <div class=" col-md-4 col-sm-12 d-flex taskButtons">
+            <div class=" col-md-4 col-sm-12 d-flex taskButtons justify-content-md-end justify-content-sm-start">
                 {% if not task.completed %}<div class="mr-1"><button class="btn btn-success" type="submit">Completed</button></div> {% endif %}
                 <div class="mr-1"><a href="{% url 'update' %}?id={{ task.id }}"><button class="btn btn-primary" type="submit">Update</button></a></div>
                 <div><a href="{% url 'delete' %}?id={{ task.id }}"><button class="btn btn-danger" type="submit">Delete</button></a></div>
