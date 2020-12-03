@@ -18,7 +18,7 @@
                         {% csrf_token %}
                         
                         <input type="hidden" name="id" value="{{ taskId }}">
-                        <a href="{% url 'index' %}" class="btn btn-info">No, go back</a>
+                        <a href="{% url 'index' %}" class="btn btn-info" role="button">No, go back</a>
                         <button class="btn btn-danger" type="submit">Yes, delete</button>
                     </form>
                 </div>
