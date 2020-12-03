@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
                  '.localhost',
+                 'sterlingbadner73.pythonanywhere.com',
                  ]
 
 
@@ -125,5 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/sterlingbadner73/homework4/'
 
 STATICFILES_DIRS = ["static"]

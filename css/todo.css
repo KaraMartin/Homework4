@@ -1,0 +1,57 @@
+h1 {
+    color: black;
+    text-align: center;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+.datetime {
+    size: 0.7rem;
+    color: gray;
+}
+
+.task-box {
+    border: 1px silver;
+    border-radius: 0.25rem;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.greyed-out {
+    background-color: #eeeeee;
+}
+
+.taskName {
+    color: #fe6993;
+    background-color: rgba(254, 105, 147, 0.1);
+    border-radius: 3px;
+    padding: 0.2em;
+    line-height: 2em;
+}
+
+.asteriskField {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .small-screen-buffer {
+        width: 100%;
+    }
+
+    .taskButtons {
+        justify-content: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .taskButtons {
+        justify-content: end;
+    }
+}
