@@ -14,11 +14,11 @@
                 <div class="card-body">
                     <h5 class="card-title">Are you sure you want to delete <span class="taskName">{{ task }}</span>?</h5>
                     
-                    <form action="{% url 'delete'%}?id={{ taskId }}" method="post">
+                    <form action="{% url 'delete'%}?id={{ task_id }}" method="post">
                         {% csrf_token %}
                         
-                        <input type="hidden" name="id" value="{{ taskId }}">
-                        <a href="{% url 'index' %}" class="btn btn-info">No, go back</a>
+                        <input type="hidden" name="id" value="{{ task_id }}">
+                        <a href="{% url 'index' %}" class="btn btn-info" role="button">No, go back</a>
                         <button class="btn btn-danger" type="submit">Yes, delete</button>
                     </form>
                 </div>
