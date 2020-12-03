@@ -27,8 +27,6 @@ def add(request):
             return index(request)
 
         else:
-            form = TaskForm()
-            context = {'form': form, 'error': 'You stupid, stupid, waste of space'}
             return render(request, 'todo/update.html')
 
     else:
@@ -47,9 +45,9 @@ def delete(request):
         return index(request)
 
     else:
-        taskId = request.GET.get('id')
-        task = Task.objects.get(pk=taskId)
-        context = {'taskId': taskId, 'task': task}
+        task_id = request.GET.get('id')
+        task = Task.objects.get(pk=task_id)
+        context = {'task_id': task_id, 'task': task}
         return render(request, 'todo/delete.html', context)
 
 
@@ -70,16 +68,16 @@ def update(request):
             return render(request, 'todo/update.html', context) 
 
     else:
-        taskId = request.GET.get('id')
-        task = Task.objects.get(pk=taskId)
+        task_id = request.GET.get('id')
+        task = Task.objects.get(pk=task_id)
         data = {
             'task': task.task,
             'completed': task.completed,
             'created_at': task.created_at
         }
-        form = TaskForm(initial = data)
+        form = TaskForm(initial=data)
 
-        context = {'form': form, 'taskId':taskId}
+        context = {'form': form, 'task_id': task_id}
         return render(request, 'todo/update.html', context)
 
 
@@ -87,8 +85,8 @@ def complete_task(request):
     # This function SHOULD take task id as an argument and get the corresponding record
     # from the database, update its completed column as True and save it.
 
-    taskId = request.GET.get('id')
-    task = Task.objects.get(pk=taskId)
+    task_id = request.GET.get('id')
+    task = Task.objects.get(pk=task_id)
 
     task.completed = True
     task.save()

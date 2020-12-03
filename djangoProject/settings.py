@@ -128,4 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/sterlingbadner73/homework4/'
 
-STATICFILES_DIRS = ["static"]
+# Commenting these out for Cloud Deployment on PythonAnywhere
+# STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = ["static"]
