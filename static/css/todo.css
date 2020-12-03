@@ -36,6 +36,10 @@ body {
     line-height: 2em;
 }
 
+.asteriskField {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .small-screen-buffer {
         width: 100%;

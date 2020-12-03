@@ -7,3 +7,5 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = '__all__'
 
+    # completed = forms.BooleanField(label='Completed')
+    # ,widget=forms.CheckboxInput(attrs={'class': "fas fa-check-square fa-3x",})

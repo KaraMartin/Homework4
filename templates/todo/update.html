@@ -14,28 +14,38 @@
                 </div>
                 <div class="card-body">
                     <form action="{% url 'update'%}?id={{ taskId }}" method="post">
-                        <div class="row">
+
+                       <div class="row">
                             <div class="col-8">
                                 {% csrf_token %}
                                 {{ form.task|as_crispy_field }}
                             </div>
+
                             <div class="col-4">
                                 <div class="row justify-content-center">
                                     {{ form.completed.label }}
                                 </div>
+
                                 <div class="row justify-content-center">
-                                    <i class="fas fa-check-square fa-3x"> {{ form.completed }} </i>
+                                    {{ form.completed }}
+                                <!-- Trying to find a FA checkbox that works :/
+
+                                    <i class="fas fa-check-square fa-3x btn btn-primary"><button class="btn btn-primary checkbox">   </button></i>
+                                    <input type="checkbox" name="completed" class="fas fa-check-square fa-3x"
+                                           style="color: primary;" id="id_completed" {% if task.completed %}checked{% endif %}>
+                                    <i class="fas fa-check-square fa-3x btn btn-primary"></i> -->
                                     <input type="hidden" name="id" value="{{ taskId }}">
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col">
                                 <a href="{% url 'index' %}?id={{ task.id }}" class="btn btn-info"><i class="fas fa-arrow-left"></i> Go back</a>
-                                <button class="btn btn-danger" type="submit">Update</button>
-                                <!-- <input type="submit" value="Send"> -->
+                                <button class="btn btn-primary" type="submit">Update</button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
