@@ -59,7 +59,6 @@ def update(request):
     # function can make it easier to validate and save form data.
     
     if request.method == 'POST':
-        print(request.POST)
         instance = Task.objects.get(id=request.POST['id'])
         form = TaskForm(request.POST or None, instance=instance)
         if form.is_valid():
@@ -78,10 +77,9 @@ def update(request):
             'completed': task.completed,
             'created_at': task.created_at
         }
-        form = TaskForm(initial=data)
+        form = TaskForm(initial = data)
 
-        context = {'form': form, 'taskId': taskId}
-        print(form)
+        context = {'form': form, 'taskId':taskId}
         return render(request, 'todo/update.html', context)
 
 
